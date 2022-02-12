@@ -4,6 +4,7 @@
  const express = require('express');
  const cors = require('cors');
  const bodyParser = require('body-parser');
+ require('dotenv').config()
  const { dbConnection } = require('./config/database/mongodb');
  const alumnosRouter = require('./routes/alunmnosRouter');
 
@@ -16,8 +17,8 @@
  /**
   * Rutas
   */
- app.use('api/alumnos', alumnosRouter);
+ app.use('/api/alumnos', alumnosRouter);
 
- app.listen(3000, () => {
+ app.listen(process.env.PORT, () => {
    console.log('corriendo servidor...');
  });
